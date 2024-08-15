@@ -1,0 +1,16 @@
+/.vs/*
+**/*.suo
+**/*.user
+**/*.bak
+**/*.orig
+**/UpgradeLog.htm
+**/bin/*
+**/obj/*
+**/App_Data/Logs/*
+**/ElmahLogs/*
+Logs
+/src/EP.SeshaLab.Web.Host/web.config
+/src/EP.SeshaLab.Web.Host/EP.SeshaLab.Web.Core.xml
+/sh.exe.stackdump
+
+
