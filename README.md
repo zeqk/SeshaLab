@@ -1,5 +1,19 @@
 ## Setup DB
 
+### SQL Server
+
+```bash
+/opt/sqlpackage/sqlpackage /a:Import \
+    /TargetTrustServerCertificate:True \
+    /TargetServerName:db \
+    /TargetDatabaseName:SeshaLab \
+    /TargetUser:sa \
+    /TargetPassword:P@ssw0rd \
+    /SourceFile:./SeshaLab.bacpac
+```
+
+### PostgreSQL
+
 ```bash
 PGPASSWORD='postgres'
 createdb -U postgres -h db seshalab
