@@ -21,19 +21,32 @@ services:
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
+  # db:
+  #   image: postgres:14.3
+  #   restart: unless-stopped
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_DB: postgres
+  #   ports:
+  #     - 5432     
+    
+
   db:
-    image: postgres:14.3
-    restart: unless-stopped
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
+    image: mcr.microsoft.com/mssql/server:2022-CU14-ubuntu-22.04
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+      MSSQL_SA_PASSWORD: 123456
+      ACCEPT_EULA: "Y"
+      MSSQL_DATA_DIR: "/var/opt/sqlserver/data"
     ports:
-      - 5432
+      - 1433
+    volumes:
+      - sql-server-data:/var/opt/mssql/
+      - sqldata:/var/opt/sqlserver/data
       
-    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
+    # Add "forwardPorts": ["1433"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   adminer:
@@ -46,4 +59,6 @@ services:
     # Add "forwardPorts": ["8080"] to **devcontainer.json** to forward PostgreSQL locally.
 
 volumes:
-  postgres-data:
+  # postgres-data:
+  sql-server-data:
+  sqldata:

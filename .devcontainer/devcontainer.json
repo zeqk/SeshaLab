@@ -14,10 +14,10 @@
         },
 		"ghcr.io/devcontainers-community/npm-features/typescript:1": {
             "version": "latest"
-        },
-        "ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {
-            "version": "14"
         }
+        // "ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {
+        //     "version": "14"
+        // }
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
